@@ -2,40 +2,68 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     android:layout_height="match_parent"
+    android:background="@color/browns"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".ui.fragments.singin.SingInFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:textSize="20sp"
+        android:text="@string/btn_sign_in"
+        android:textColor="@color/white" />
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="30dp"/>
 
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:hint="Email"
-        android:inputType="textEmailAddress" />
+        android:background="@drawable/custom_background"
+        android:hint="@string/ed_email"
+        android:inputType="textEmailAddress"
+        android:paddingStart="20dp"
+        android:textColor="@color/browns" />
+
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_background"
         android:hint="@string/ed_password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:paddingStart="20dp"
+        android:textColor="@color/browns" />
 
-    <Button
-        android:id="@+id/btn_sign_in"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|bottom"
-        android:textAllCaps="true"
-        android:text="@string/btn_sign_in" />
-
-    <Button
+    <TextView
         android:id="@+id/btn_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/btn_registration"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/btn_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
-        android:textAllCaps="true"
-        android:text="Registration" />
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/green"
+        android:text="@string/btn_sign_in"
+        android:textAllCaps="true" />
 
 </LinearLayout>

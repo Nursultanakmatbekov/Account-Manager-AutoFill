@@ -6,6 +6,7 @@
     <string name="btn_google">Sign in with Google</string>
     <string name="ed_password">Password</string>
     <string name="ed_email">Email</string>
-    <string name="btn_sign_in">sign in</string>
+    <string name="btn_sign_in">Sign in</string>
     <string name="register">register</string>
+    <string name="btn_registration">Registration</string>
 </resources>
