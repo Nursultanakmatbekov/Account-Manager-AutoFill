@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "390750371593",
+    "project_id": "sing-81a38",
+    "storage_bucket": "sing-81a38.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390750371593:android:69bc619f391399cfbe9dd8",
+        "android_client_info": {
+          "package_name": "com.nur.uss"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "390750371593-8cpi4v49q1kquu6nqrkls3rinsju2npv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nur.uss",
+            "certificate_hash": "671580327e15d9f69f4df43a1d374bf308845310"
+          }
+        },
+        {
+          "client_id": "390750371593-u6qan0bigefs3h7s1h6uin9ijo1nnqit.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxR7KlJTUHpATX25XUKCoMTiJbEH9rE08"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "390750371593-u6qan0bigefs3h7s1h6uin9ijo1nnqit.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
