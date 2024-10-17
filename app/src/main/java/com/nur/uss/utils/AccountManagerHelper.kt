@@ -4,19 +4,24 @@ import android.accounts.Account
 import android.accounts.AccountManager
 import android.content.Context
 
-class AccountManagerHelper(private val context: Context)  : AccountHelper {
+class AccountManagerHelper(private val context: Context) {
     private val accountManager: AccountManager = AccountManager.get(context)
+    val keyStoreManager = KeyStoreManager()
 
-    override fun getAccountsByType(accountType: String): Array<Account> {
+    fun getAccountsByType(accountType: String): Array<Account> {
         return accountManager.getAccountsByType(accountType)
     }
 
-    override fun addAccount(email: String, password: String) {
+    fun addAccount(email: String, token: String) {
         val account = Account(email, "com.nur.uss.account")
-        accountManager.addAccountExplicitly(account, password, null)
+        accountManager.addAccountExplicitly(account, token, null)
     }
 
-    override fun getPassword(account: Account): String? {
+    fun getToken(account: Account): String? {
         return accountManager.getPassword(account)
+    }
+
+    fun saveToken(account: Account, token: String) {
+        accountManager.setPassword(account, token)
     }
 }

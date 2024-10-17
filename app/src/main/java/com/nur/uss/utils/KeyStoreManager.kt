@@ -10,7 +10,7 @@ import javax.crypto.KeyGenerator
 import javax.crypto.SecretKey
 import javax.crypto.spec.GCMParameterSpec
 
-class KeyStoreManager() : EncryptionManager {
+class KeyStoreManager {
 
     private val keyStore: KeyStore = KeyStore.getInstance("AndroidKeyStore").apply { load(null) }
     private val keyAlias = "myKeyAlias"
@@ -37,12 +37,13 @@ class KeyStoreManager() : EncryptionManager {
         }
     }
 
-    override fun encrypt(data: String): String {
+    fun encrypt(data: String): String {
         val cipher = Cipher.getInstance("AES/GCM/NoPadding")
         cipher.init(Cipher.ENCRYPT_MODE, getKey())
         val iv = cipher.iv
         val encryptedData = cipher.doFinal(data.toByteArray())
 
+        // Сохраняем IV и зашифрованные данные вместе
         val combined = ByteArray(iv.size + encryptedData.size)
         System.arraycopy(iv, 0, combined, 0, iv.size)
         System.arraycopy(encryptedData, 0, combined, iv.size, encryptedData.size)
@@ -50,9 +51,9 @@ class KeyStoreManager() : EncryptionManager {
         return Base64.encodeToString(combined, Base64.DEFAULT)
     }
 
-    override fun decrypt(data: String): String {
+    fun decrypt(data: String): String {
         val encryptedData = Base64.decode(data, Base64.DEFAULT)
-        val iv = encryptedData.copyOfRange(0, 12) // Первые 12 байт - это IV
+        val iv = encryptedData.copyOfRange(0, 12)
         val encryptedBytes = encryptedData.copyOfRange(12, encryptedData.size)
         val cipher = Cipher.getInstance("AES/GCM/NoPadding")
         cipher.init(
