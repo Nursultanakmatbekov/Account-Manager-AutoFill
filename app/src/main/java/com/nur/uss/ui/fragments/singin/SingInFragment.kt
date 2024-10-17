@@ -34,6 +34,7 @@ class SingInFragment : Fragment() {
     private val binding by viewBinding(FragmentSingInBinding::bind)
     private val viewModel: SingInViewModel by viewModels()
 
+
     @Inject
     lateinit var accountManagerHelper: AccountManagerHelper
 
