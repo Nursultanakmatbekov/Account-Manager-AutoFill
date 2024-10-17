@@ -17,22 +17,26 @@ class RegisterViewModel @Inject constructor(
     private val auth: FirebaseAuth
 ) : ViewModel() {
 
+    // Состояние для отслеживания статуса регистрации
     private val _state = MutableStateFlow<RegisterState>(RegisterState.Idle)
     val state: StateFlow<RegisterState> get() = _state
 
+    // Канал для получения намерений регистрации
     private val _intentChannel = Channel<RegisterIntent>(Channel.UNLIMITED)
     val intents = _intentChannel.receiveAsFlow()
 
     init {
-        processIntents()
+        processIntents() // Инициализация обработки намерений
     }
 
+    // Отправка намерения регистрации
     fun send(intent: RegisterIntent) {
         viewModelScope.launch {
             _intentChannel.send(intent)
         }
     }
 
+    // Обработка намерений регистрации
     private fun processIntents() {
         viewModelScope.launch {
             intents.collect { intent ->
@@ -46,8 +50,9 @@ class RegisterViewModel @Inject constructor(
         }
     }
 
+    // Регистрация пользователя
     private fun registerUser(email: String, password: String) {
-        _state.value = RegisterState.Loading
+        _state.value = RegisterState.Loading // Установка состояния загрузки
 
         viewModelScope.launch(Dispatchers.IO) {
             auth.createUserWithEmailAndPassword(email, password)
